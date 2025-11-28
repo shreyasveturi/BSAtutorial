@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model BetaSignup {
+  id             String   @id @default(uuid())
+  createdAt      DateTime @default(now())
+  email          String
+  name           String?
+  university     String?
+  graduationYear String?
+  targetRole     String?
+  hoursPerWeek   String?   // store as string to keep schema simple
+  hardestPart    String?
+  source         String?
+}
+
+model ArticleSession {
+  id                String   @id @default(uuid())
+  createdAt         DateTime @default(now())
+  articleSlug       String
+  totalXP           Int
+  questionsAnswered Int
+  questionsCorrect  Int
+  meta              Json?
+}
