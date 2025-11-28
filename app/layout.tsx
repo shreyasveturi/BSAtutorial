@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
+import Link from 'next/link';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,11 +28,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}
       >
-        <Navigation />
+        <header className="border-b bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <Link href="/" className="font-bold text-lg">Break Into Finance</Link>
+            <nav className="space-x-3 text-sm">
+              <Link href="/article/demo" className="text-gray-700 hover:text-gray-900">Demo</Link>
+              <Link href="/beta" className="text-gray-700 hover:text-gray-900">Beta</Link>
+            </nav>
+          </div>
+        </header>
         <main className="min-h-screen">
-        {children}
+          {children}
         </main>
-        <Footer />
+        <footer className="border-t bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-sm text-gray-600">© 2025 Break Into Finance</div>
+        </footer>
       </body>
     </html>
   );

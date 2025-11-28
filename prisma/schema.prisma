@@ -27,5 +27,5 @@ model ArticleSession {
   totalXP           Int
   questionsAnswered Int
   questionsCorrect  Int
-  meta              Json?
+  meta              String?
 }
